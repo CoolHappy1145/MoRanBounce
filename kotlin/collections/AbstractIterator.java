@@ -1,0 +1,73 @@
+package kotlin.collections;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import jdk.nashorn.internal.runtime.PropertyDescriptor;
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
+import kotlin.Metadata;
+import kotlin.jvm.internal.markers.KMappedMarker;
+import org.spongepowered.asm.util.Constants;
+
+@Metadata(m24mv = {1, 1, OPCode.EXACTN_IC}, m25bv = {1, 0, 3}, m23k = 1, m26d1 = {"\ufffd\ufffd$\n\u0002\u0018\u0002\n\ufffd\ufffd\n\u0002\u0010(\n\u0002\b\u0004\n\u0002\u0018\u0002\n\ufffd\ufffd\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\b&\u0018\ufffd\ufffd*\u0004\b\ufffd\ufffd\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u0002B\u0005\u00a2\u0006\u0002\u0010\u0003J\b\u0010\b\u001a\u00020\tH$J\b\u0010\n\u001a\u00020\tH\u0004J\t\u0010\u000b\u001a\u00020\fH\u0096\u0002J\u000e\u0010\r\u001a\u00028\ufffd\ufffdH\u0096\u0002\u00a2\u0006\u0002\u0010\u000eJ\u0015\u0010\u000f\u001a\u00020\t2\u0006\u0010\u0010\u001a\u00028\ufffd\ufffdH\u0004\u00a2\u0006\u0002\u0010\u0011J\b\u0010\u0012\u001a\u00020\fH\u0002R\u0012\u0010\u0004\u001a\u0004\u0018\u00018\ufffd\ufffdX\u0082\u000e\u00a2\u0006\u0004\n\u0002\u0010\u0005R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e\u00a2\u0006\u0002\n\ufffd\ufffd\u00a8\u0006\u0013"}, m27d2 = {"Lkotlin/collections/AbstractIterator;", "T", "", "()V", "nextValue", Constants.OBJECT_DESC, "state", "Lkotlin/collections/State;", "computeNext", "", "done", "hasNext", "", "next", "()Ljava/lang/Object;", "setNext", PropertyDescriptor.VALUE, "(Ljava/lang/Object;)V", "tryToComputeNext", "kotlin-stdlib"})
+/* loaded from: L-out.jar:kotlin/collections/AbstractIterator.class */
+public abstract class AbstractIterator implements Iterator, KMappedMarker {
+    private State state = State.NotReady;
+    private Object nextValue;
+
+    @Metadata(m24mv = {1, 1, OPCode.EXACTN_IC}, m25bv = {1, 0, 3}, m23k = 3)
+    /* loaded from: L-out.jar:kotlin/collections/AbstractIterator$WhenMappings.class */
+    public final class WhenMappings {
+        public static final int[] $EnumSwitchMapping$0 = new int[State.values().length];
+
+        static {
+            $EnumSwitchMapping$0[State.Done.ordinal()] = 1;
+            $EnumSwitchMapping$0[State.Ready.ordinal()] = 2;
+        }
+    }
+
+    protected abstract void computeNext();
+
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
+    @Override // java.util.Iterator
+    public boolean hasNext() {
+        if (!(this.state != State.Failed)) {
+            throw new IllegalArgumentException("Failed requirement.".toString());
+        }
+        switch (WhenMappings.$EnumSwitchMapping$0[this.state.ordinal()]) {
+            case 1:
+                return false;
+            case 2:
+                return true;
+            default:
+                return tryToComputeNext();
+        }
+    }
+
+    @Override // java.util.Iterator
+    public Object next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        this.state = State.NotReady;
+        return this.nextValue;
+    }
+
+    private final boolean tryToComputeNext() {
+        this.state = State.Failed;
+        computeNext();
+        return this.state == State.Ready;
+    }
+
+    protected final void setNext(Object obj) {
+        this.nextValue = obj;
+        this.state = State.Ready;
+    }
+
+    protected final void done() {
+        this.state = State.Done;
+    }
+}

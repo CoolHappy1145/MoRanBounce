@@ -1,0 +1,180 @@
+package jdk.nashorn.internal.objects;
+
+import jdk.nashorn.internal.runtime.JSType;
+import jdk.nashorn.internal.runtime.PropertyMap;
+import jdk.nashorn.internal.runtime.PrototypeObject;
+import jdk.nashorn.internal.runtime.ScriptFunction;
+import jdk.nashorn.internal.runtime.ScriptObject;
+import jdk.nashorn.internal.runtime.ScriptRuntime;
+
+/*  JADX ERROR: NullPointerException in pass: ProcessKotlinInternals
+    java.lang.NullPointerException
+    */
+/* loaded from: L-out.jar:jdk/nashorn/internal/objects/NativeSyntaxError.class */
+public final class NativeSyntaxError extends ScriptObject {
+    public Object instMessage;
+    public Object nashornException;
+    private static PropertyMap $nasgenmap$;
+
+    /* loaded from: L-out.jar:jdk/nashorn/internal/objects/NativeSyntaxError$Constructor.class */
+    final class Constructor extends ScriptFunction {
+        /*  JADX ERROR: Failed to decode insn: 0x0003: CONST
+            jadx.plugins.input.java.utils.JavaClassParseException: Unsupported constant type: METHOD_HANDLE
+            	at jadx.plugins.input.java.data.code.decoders.LoadConstDecoder.decode(LoadConstDecoder.java:65)
+            	at jadx.plugins.input.java.data.code.JavaInsnData.decode(JavaInsnData.java:46)
+            	at jadx.core.dex.instructions.InsnDecoder.lambda$process$0(InsnDecoder.java:50)
+            	at jadx.plugins.input.java.data.code.JavaCodeReader.visitInstructions(JavaCodeReader.java:85)
+            	at jadx.core.dex.instructions.InsnDecoder.process(InsnDecoder.java:46)
+            	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:158)
+            	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:458)
+            	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:464)
+            	at jadx.core.ProcessClass.process(ProcessClass.java:69)
+            	at jadx.core.ProcessClass.generateCode(ProcessClass.java:109)
+            	at jadx.core.dex.nodes.ClassNode.generateClassCode(ClassNode.java:401)
+            	at jadx.core.dex.nodes.ClassNode.decompile(ClassNode.java:389)
+            	at jadx.core.dex.nodes.ClassNode.getCode(ClassNode.java:339)
+            */
+        Constructor() {
+            /*
+                r5 = this;
+                r0 = r5
+                java.lang.String r1 = "SyntaxError"
+                // decode failed: Unsupported constant type: METHOD_HANDLE
+                r-2.<init>(r-1, r0, r1)
+                r-2 = r5
+                jdk.nashorn.internal.objects.NativeSyntaxError$Prototype r-1 = new jdk.nashorn.internal.objects.NativeSyntaxError$Prototype
+                r0 = r-1
+                r0.<init>()
+                r0 = r-1
+                r1 = r5
+                jdk.nashorn.internal.runtime.PrototypeObject.setConstructor(r0, r1)
+                r-2.setPrototype(r-1)
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: jdk.nashorn.internal.objects.NativeSyntaxError.Constructor.<init>():void");
+        }
+    }
+
+    /* loaded from: L-out.jar:jdk/nashorn/internal/objects/NativeSyntaxError$Prototype.class */
+    final class Prototype extends PrototypeObject {
+        private Object name;
+        private Object message;
+        private static final PropertyMap $nasgenmap$ = null;
+
+        public Object G$name() {
+            return this.name;
+        }
+
+        public void S$name(Object obj) {
+            this.name = obj;
+        }
+
+        public Object G$message() {
+            return this.message;
+        }
+
+        public void S$message(Object obj) {
+            this.message = obj;
+        }
+
+        Prototype() {
+            super($nasgenmap$);
+        }
+    }
+
+    /* JADX WARN: Failed to check method for inline after forced processjdk.nashorn.internal.objects.NativeSyntaxError.$clinit$():void */
+    static {
+        $clinit$();
+    }
+
+    /*  JADX ERROR: Failed to decode insn: 0x000C: CONST
+        jadx.plugins.input.java.utils.JavaClassParseException: Unsupported constant type: METHOD_HANDLE
+        	at jadx.plugins.input.java.data.code.decoders.LoadConstDecoder.decode(LoadConstDecoder.java:65)
+        	at jadx.plugins.input.java.data.code.JavaInsnData.decode(JavaInsnData.java:46)
+        	at jadx.core.dex.instructions.InsnDecoder.lambda$process$0(InsnDecoder.java:50)
+        	at jadx.plugins.input.java.data.code.JavaCodeReader.visitInstructions(JavaCodeReader.java:85)
+        	at jadx.core.dex.instructions.InsnDecoder.process(InsnDecoder.java:46)
+        	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:158)
+        	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:458)
+        	at jadx.core.ProcessClass.process(ProcessClass.java:69)
+        	at jadx.core.ProcessClass.generateCode(ProcessClass.java:109)
+        	at jadx.core.dex.nodes.ClassNode.generateClassCode(ClassNode.java:401)
+        	at jadx.core.dex.nodes.ClassNode.decompile(ClassNode.java:389)
+        	at jadx.core.dex.nodes.ClassNode.getCode(ClassNode.java:339)
+        */
+    /*  JADX ERROR: Failed to decode insn: 0x001C: CONST
+        jadx.plugins.input.java.utils.JavaClassParseException: Unsupported constant type: METHOD_HANDLE
+        	at jadx.plugins.input.java.data.code.decoders.LoadConstDecoder.decode(LoadConstDecoder.java:65)
+        	at jadx.plugins.input.java.data.code.JavaInsnData.decode(JavaInsnData.java:46)
+        	at jadx.core.dex.instructions.InsnDecoder.lambda$process$0(InsnDecoder.java:50)
+        	at jadx.plugins.input.java.data.code.JavaCodeReader.visitInstructions(JavaCodeReader.java:85)
+        	at jadx.core.dex.instructions.InsnDecoder.process(InsnDecoder.java:46)
+        	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:158)
+        	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:458)
+        	at jadx.core.ProcessClass.process(ProcessClass.java:69)
+        	at jadx.core.ProcessClass.generateCode(ProcessClass.java:109)
+        	at jadx.core.dex.nodes.ClassNode.generateClassCode(ClassNode.java:401)
+        	at jadx.core.dex.nodes.ClassNode.decompile(ClassNode.java:389)
+        	at jadx.core.dex.nodes.ClassNode.getCode(ClassNode.java:339)
+        */
+    public static void $clinit$() {
+        /*
+            java.util.ArrayList r0 = new java.util.ArrayList
+            r1 = r0
+            r2 = 2
+            r1.<init>(r2)
+            r1 = r0
+            java.lang.String r2 = "message"
+            r3 = 2
+            // decode failed: Unsupported constant type: METHOD_HANDLE
+            r1[r2] = r3
+            jdk.nashorn.internal.runtime.AccessorProperty r-3 = jdk.nashorn.internal.runtime.AccessorProperty.create(r-3, r-2, r-1, r0)
+            boolean r-4 = r-4.add(r-3)
+            r-4 = r-5
+            java.lang.String r-3 = "nashornException"
+            r-2 = 2
+            // decode failed: Unsupported constant type: METHOD_HANDLE
+            long r-3 = r-3 - r-2
+            jdk.nashorn.internal.runtime.AccessorProperty r-6 = jdk.nashorn.internal.runtime.AccessorProperty.create(r-6, r-5, r-4, r-3)
+            boolean r-7 = r-7.add(r-6)
+            jdk.nashorn.internal.runtime.PropertyMap r-8 = jdk.nashorn.internal.runtime.PropertyMap.newMap(r-8)
+            jdk.nashorn.internal.objects.NativeSyntaxError.$nasgenmap$ = r-8
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: jdk.nashorn.internal.objects.NativeSyntaxError.$clinit$():void");
+    }
+
+    public Object G$instMessage() {
+        return this.instMessage;
+    }
+
+    public void S$instMessage(Object obj) {
+        this.instMessage = obj;
+    }
+
+    public Object G$nashornException() {
+        return this.nashornException;
+    }
+
+    public void S$nashornException(Object obj) {
+        this.nashornException = obj;
+    }
+
+    NativeSyntaxError(Object obj, Global global) {
+        super(global.getSyntaxErrorPrototype(), $nasgenmap$);
+        if (obj != ScriptRuntime.UNDEFINED) {
+            this.instMessage = JSType.toString(obj);
+        } else {
+            delete("message", false);
+        }
+        NativeError.initException(this);
+    }
+
+    private NativeSyntaxError(Object obj) {
+        this(obj, Global.instance());
+    }
+
+    public static NativeSyntaxError constructor(boolean z, Object obj, Object obj2) {
+        return new NativeSyntaxError(obj2);
+    }
+}

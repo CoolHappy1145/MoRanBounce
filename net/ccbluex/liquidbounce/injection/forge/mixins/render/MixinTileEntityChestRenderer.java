@@ -1,0 +1,32 @@
+package net.ccbluex.liquidbounce.injection.forge.mixins.render;
+
+import net.ccbluex.liquidbounce.LiquidBounce;
+import net.ccbluex.liquidbounce.features.module.modules.render.Chams;
+import net.minecraft.client.renderer.tileentity.TileEntityChestRenderer;
+import org.lwjgl.opengl.GL11;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.InterfaceC0563At;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin({TileEntityChestRenderer.class})
+/* loaded from: L-out.jar:net/ccbluex/liquidbounce/injection/forge/mixins/render/MixinTileEntityChestRenderer.class */
+public class MixinTileEntityChestRenderer {
+    @Inject(method = {"render"}, m59at = {@InterfaceC0563At("HEAD")})
+    private void injectChamsPre(CallbackInfo callbackInfo) {
+        Chams chams = (Chams) LiquidBounce.moduleManager.getModule(Chams.class);
+        if (chams.getState() && ((Boolean) chams.getChestsValue().get()).booleanValue()) {
+            GL11.glEnable(32823);
+            GL11.glPolygonOffset(1.0f, -1000000.0f);
+        }
+    }
+
+    @Inject(method = {"render"}, m59at = {@InterfaceC0563At("RETURN")})
+    private void injectChamsPost(CallbackInfo callbackInfo) {
+        Chams chams = (Chams) LiquidBounce.moduleManager.getModule(Chams.class);
+        if (chams.getState() && ((Boolean) chams.getChestsValue().get()).booleanValue()) {
+            GL11.glPolygonOffset(1.0f, 1000000.0f);
+            GL11.glDisable(32823);
+        }
+    }
+}
